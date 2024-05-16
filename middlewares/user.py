@@ -5,7 +5,7 @@ from aiogram.types import Message
 
 from db import User
 
-
+# Мидлварь для создания пользователя в бд и передачи его в хэндлер
 class UserMessageMiddleware(BaseMiddleware):
     def __init__(self, user_model: User = User):
         self.user_model = user_model

@@ -1,7 +1,7 @@
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from messages.ru import weather_button
 
-
+# Основная клавитура, содержащая кнопку Погода
 def get_weather_keyboard():
     keyboard_builder = ReplyKeyboardBuilder()
     keyboard_builder.button(text=weather_button)
