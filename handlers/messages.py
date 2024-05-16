@@ -18,6 +18,8 @@ from services.types import SetCityState
 
 from datetime import datetime
 
+import time
+
 router = Router()
 router.message.middleware(UserMessageMiddleware())
 
@@ -71,7 +73,6 @@ async def weather_message(message: Message, user: User,
     winds_directions = ["С", "СВ", "В", "ЮВ", "Ю", "ЮЗ", "З", "CЗ"]
 
     wind = weather.wind()
-    time = datetime.fromtimestamp(datetime.today().timestamp() + weather.utc_offset).strftime("%H:%M:%S")
     weather_data = {
         'city': user.city,
         'wind_speed': wind['speed'],
@@ -79,7 +80,6 @@ async def weather_message(message: Message, user: User,
         'humidity': weather.humidity,
         'temperature_celsius': round(weather.temperature('celsius')['temp']),
         'clouds': weather.clouds,
-        'time': time
     }
 
     await message.answer(city_weather_message.format(**weather_data))

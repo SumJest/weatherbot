@@ -38,7 +38,6 @@ city_weather_message = """
 Влажность: {humidity}%
 Температура: {temperature_celsius} °C
 Облачность: {clouds}%
-Время: {time}
 """
 
 
